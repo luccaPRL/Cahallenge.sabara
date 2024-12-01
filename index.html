@@ -24,7 +24,7 @@
 </header>
 
 <main>
-    <!-- Home -->
+    <!-- Pate da Home -->
     <div id="home" class="section">
         <h2>Bem-vindo ao Sistema Automático do Hospital Sabará</h2>
         <div class="buttons-container">
@@ -129,7 +129,7 @@
 </footer>
 
 <script>
-// Exibição de alerta ao clicar nos botões
+//alerta ao clicar nos botões
 document.getElementById('agendar-btn').addEventListener('click', function() {
     alert('Você clicou em Agendar Consulta!');
 });
@@ -138,27 +138,27 @@ document.getElementById('status-btn').addEventListener('click', function() {
     alert('Você clicou em Status do Atendimento!');
 });
 
-// Validação simples do formulário de agendamento
+//Validação simples do formulário de agendamento
 document.getElementById('agendamento-form').addEventListener('submit', function(event) {
     let nome = document.getElementById('nome').value;
     let descricao = document.getElementById('descricao').value;
 
     if (!nome || !descricao) {
         alert('Por favor, preencha todos os campos obrigatórios!');
-        event.preventDefault(); // Impede o envio do formulário
+        event.preventDefault();
     } else {
         alert('Agendamento confirmado!');
     }
 });
 
-// Alteração de cor do botão ao passar o mouse
+//Alteração de cor do botão ao passar o mouse
 const buttons = document.querySelectorAll('.buttons-container button');
 buttons.forEach(button => {
     button.addEventListener('mouseover', function() {
-        button.style.backgroundColor = '#0056b3'; // Cor mais escura ao passar o mouse
+        button.style.backgroundColor = '#0056b3';
     });
     button.addEventListener('mouseout', function() {
-        button.style.backgroundColor = ''; // Restaura a cor original
+        button.style.backgroundColor = '';
     });
 });
 </script>

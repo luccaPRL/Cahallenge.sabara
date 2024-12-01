@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Automático - Hospital Sabará</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Sabará - Hospital Infantil</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#agendamento">Agendamento</a></li>
+            <li><a href="#status-atendimento">Status</a></li>
+            <li><a href="#prontuario">Prontuário</a></li>
+            <li><a href="#informacoes-basicas">Informações</a></li>
+            <li><a href="#informacoes-basicas">Contatos</a></li>
+        </ul>
+    </nav>
+    <button class="btn-login">Login</button>
+</header>
+
+<main>
+    <!-- Home -->
+    <div id="home" class="section">
+        <h2>Bem-vindo ao Sistema Automático do Hospital Sabará</h2>
+        <div class="buttons-container">
+            <button class="btn-green" id="agendar-btn">Agendar Consulta</button>
+            <button class="btn-blue" id="status-btn">Status do Atendimento</button>
+        </div>
+    </div>
+
+    <!-- Status de Atendimento -->
+    <div id="status-atendimento" class="section">
+        <h2>Status de Atendimento</h2>
+        <div class="status-container">
+            <div class="status-box">
+                <img src="foto_paciente.jpg" alt="Foto do paciente">
+                <p>Informações do paciente:</p>
+                <div class="status-footer btn-red">Em espera</div>
+            </div>
+            <div class="status-box">
+                <img src="foto_paciente.jpg" alt="Foto do paciente">
+                <p>Informações do paciente:</p>
+                <div class="status-footer btn-yellow">Em consulta</div>
+            </div>
+            <div class="status-box">
+                <img src="foto_paciente.jpg" alt="Foto do paciente">
+                <p>Informações do paciente:</p>
+                <div class="status-footer btn-green-footer">Finalizado</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agendamento -->
+    <div id="agendamento" class="section">
+        <h2>Agendamento</h2>
+        <form id="agendamento-form">
+            <input type="text" id="nome" placeholder="Nome">
+            <textarea id="descricao" placeholder="Descrição"></textarea>
+            <input type="date" id="data">
+            <input type="time" id="hora">
+            <button class="btn-green" type="submit">Confirmar Agendamento</button>
+        </form>
+    </div>
+
+    <!-- Prontuário Eletrônico -->
+    <div id="prontuario" class="section">
+        <h2>Prontuário Eletrônico</h2>
+        <form>
+            <input type="text" placeholder="Nome">
+            <div class="status-container">
+                <div class="status-box">
+                    <h3>Diagnóstico</h3>
+                    <p>Informações apareceram aqui</p>
+                    <button class="btn-green">Atualizar</button>
+                </div>
+                <div class="status-box">
+                    <h3>Tratamento</h3>
+                    <p>Informações apareceram aqui</p>
+                    <button class="btn-green">Atualizar</button>
+                </div>
+                <div class="status-box">
+                    <h3>Exames</h3>
+                    <p>Informações apareceram aqui</p>
+                    <button class="btn-green">Atualizar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Informações Básicas -->
+    <div id="informacoes-basicas" class="section">
+        <h2>Informações Básicas</h2>
+        <div class="info-basic-container">
+            <div class="info-box">
+                <h3>Funcionalidades Básicas</h3>
+                <p>Horários de Funcionamento:</p>
+                <p>Pronto-Socorro: 24 horas</p>
+                <p>Ambulatório: 08:00 - 18:00</p>
+                <p>Exames: 07:00 - 20:00</p>
+            </div>
+            <div class="info-box">
+                <h3>Contato Importante</h3>
+                <p>Telefone para Emergência: 190</p>
+                <p>Central de Atendimento: (11) 1234-5678</p>
+                <p>WhatsApp para Suporte: (11) 9876-5432</p>
+            </div>
+            <div class="info-box">
+                <h3>Leitos Disponíveis</h3>
+                <p>UTI: 3 leitos disponíveis</p>
+                <p>Enfermaria: 10 leitos disponíveis</p>
+            </div>
+            <div class="info-box">
+                <h3>Status de Atendimento</h3>
+                <p>Pacientes atendidos hoje: 150</p>
+                <p>Tempo médio de espera: 30 minutos</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Rodapé -->
+<footer class="footer">
+    <p>&copy; 2024 Hospital Sabará. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// Exibição de alerta ao clicar nos botões
+document.getElementById('agendar-btn').addEventListener('click', function() {
+    alert('Você clicou em Agendar Consulta!');
+});
+
+document.getElementById('status-btn').addEventListener('click', function() {
+    alert('Você clicou em Status do Atendimento!');
+});
+
+// Validação simples do formulário de agendamento
+document.getElementById('agendamento-form').addEventListener('submit', function(event) {
+    let nome = document.getElementById('nome').value;
+    let descricao = document.getElementById('descricao').value;
+
+    if (!nome || !descricao) {
+        alert('Por favor, preencha todos os campos obrigatórios!');
+        event.preventDefault(); // Impede o envio do formulário
+    } else {
+        alert('Agendamento confirmado!');
+    }
+});
+
+// Alteração de cor do botão ao passar o mouse
+const buttons = document.querySelectorAll('.buttons-container button');
+buttons.forEach(button => {
+    button.addEventListener('mouseover', function() {
+        button.style.backgroundColor = '#0056b3'; // Cor mais escura ao passar o mouse
+    });
+    button.addEventListener('mouseout', function() {
+        button.style.backgroundColor = ''; // Restaura a cor original
+    });
+});
+</script>
+
+</body>
+</html>
